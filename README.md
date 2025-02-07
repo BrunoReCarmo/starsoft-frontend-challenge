@@ -7,7 +7,8 @@
 ###
 
 <p align="left">Esta aplicação foi desenvolvida com o objetivo de atender a um escopo de teste para a Starsoft. O projeto consiste em um esqueleto de frontend voltado para a venda de NFTs (Tokens Não Fungíveis), proporcionando uma base sólida para futuras implementações de funcionalidades e integrações.<br><br>O foco principal está na estruturação da interface, visando a escalabilidade, organização de código e uma experiência de usuário fluida e intuitiva.</p>
-
+<br>
+<a href="https://starsoft-frontend-challenge-seven.vercel.app/" target="_blank">Acessar Demo</a>
 ###
 
 <h2 align="left">Requisitos</h2>
