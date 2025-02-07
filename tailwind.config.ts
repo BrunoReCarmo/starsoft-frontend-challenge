@@ -10,14 +10,14 @@ export default {
   theme: {
   	extend: {
   		colors: {
-			primaryC: '#FF9310',
+			primaryC: '#FF8310',
 			secondaryC: '#232323',
 			tertiaryC: '#191A20',
 			quaternaryC: '#393939',
 			quinaryC: '#CCCCCC',
 			senaryC: '#FFFFFF',
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			foreground: '#FFFFFF',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
