@@ -9,13 +9,14 @@ import ProductDetails from "./_components/product-details";
 import { Loader } from "@/components/loader";
 import { BackHome } from "../../components/back-home";
 import { NotFound } from "@/components/not-found";
+import { Props } from "@/services/addCartData";
 
 const ProductOverview: React.FC = () => {
   // Get ID from URL
   const { id } = useParams();
   const [limit, setLimit] = useState(10); 
-  const [products, setProducts] = useState<any[]>([]);
-  const [product, setProduct] = useState<any>(null);
+  const [products, setProducts] = useState<Props[]>([]);
+  const [product, setProduct] = useState<Props | null>(null);
 
   const { data, isLoading, isError } = useFetchNfts(limit);
 
@@ -25,9 +26,8 @@ const ProductOverview: React.FC = () => {
       // Get count from metadata
       setLimit(totalItems);
 
-      // Function to load all products
       const loadProductsFromPages = async () => {
-        let allProducts: any[] = [...data.data];
+        const allProducts: Props[] = [...data.data];
 
         setProducts(allProducts); 
       };
@@ -40,7 +40,7 @@ const ProductOverview: React.FC = () => {
   useEffect(() => {
     if (products.length > 0 && id) {
       const selectedProduct = products.find((product) => product.id === parseInt(id as string));
-      setProduct(selectedProduct);
+      setProduct(selectedProduct || null);
     }
   }, [products, id]);
 
@@ -53,7 +53,7 @@ const ProductOverview: React.FC = () => {
     <>
       <ProductDetails
         id={product.id}
-        title={product.name}
+        title={product.title}
         createdAt={new Date(product.createdAt).toLocaleString()} 
         description={product.description}
         price={product.price.toString()} 

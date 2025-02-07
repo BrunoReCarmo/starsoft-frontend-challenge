@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 
+import { Toaster } from "@/components/ui/toaster"
 import { Header } from "./_components/Header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
           <div className="px-4 md:px-16 xl:px-20 2xl:px-72 py-32 2xl:py-40">
             {children}
           </div>
+          <Toaster />
         </QueryClientProvider>
       </body>
     </html>

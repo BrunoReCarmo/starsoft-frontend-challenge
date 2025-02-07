@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { useToast } from "@/hooks/use-toast";
+
 import { AddCart, Props } from "@/services/addCartData";
 
 import Reveal from "@/components/reveal";
@@ -15,16 +17,25 @@ export default function ProductDetails({
   description,
   price,
 }: Props) {
-  const HandleSubmitData = () => {
-    AddCart({
-      id,
-      image,
-      title,
-      createdAt,
-      description,
-      price,
-    });
-  }
+  
+const { toast } = useToast();
+
+  const handleSubmitData = () => {
+      AddCart({
+        id,
+        image,
+        title,
+        createdAt,
+        description,
+        price,
+      });
+  
+      toast({
+        title: "Produto adicionado ao carrinho",
+        description: "O item foi adicionado com sucesso!",
+      });
+      
+  };
 
   return (
     <Transition>
@@ -61,11 +72,11 @@ export default function ProductDetails({
           </Reveal>
           <div className="grid md:grid-cols-2 md:gap-4 mt-4 md:mt-0 lg:mt-8">
             <div className="flex justify-end mt-auto pt-2">
-              <Button onClick={HandleSubmitData} className="bg-quaternaryC ">
+              <Button onClick={handleSubmitData} className="bg-quaternaryC ">
                 ADICIONAR AO CARRINHO
               </Button>
             </div>
-            <div className="flex justify-end mt-auto pt-2">
+            <div onClick={handleSubmitData} className="flex justify-end mt-auto pt-2">
               <Button>COMPRAR</Button>
             </div>
           </div>

@@ -1,7 +1,7 @@
 export interface Props {
   id: number;
   image: string;
-  title: string;
+  title?: string;
   createdAt: string;
   description: string;
   price: string;
@@ -30,5 +30,4 @@ export const AddCart = ({
   updatedItems.push(itemData);
 
   localStorage.setItem("purchasedItems", JSON.stringify(updatedItems));
-  alert("Informações salvas no localStorage!");
 };

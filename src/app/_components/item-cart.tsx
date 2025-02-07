@@ -9,7 +9,15 @@ import { TooltipInfo } from "@/components/tooltip-info";
 import { Button } from "@/components/ui/button";
 
 export const ItemCart = () => {
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  interface CartItem {
+    id: string;          
+    title: string;
+    description: string;
+    price: number;
+    image: string;
+  }
+  
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [quantities, setQuantities] = useState<number[]>([]);
 
   useEffect(() => {

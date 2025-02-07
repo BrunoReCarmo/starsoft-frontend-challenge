@@ -20,7 +20,7 @@ export const Header = () => {
 
       let totalItems = 0;
 
-      parsedItems.forEach((item : any, index : any) => {
+      parsedItems.forEach((item : string, index : number) => {
         const quantity = parsedQuantities[index] || 1;
         totalItems += quantity;
       });
